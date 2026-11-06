@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>INFINITE ELEMENT TYCOON</title>
+<style>
+:root{--bg:#f4f6fa;--panel:#fff;--ink:#172033;--muted:#687386;--line:#dce2ec;--accent:#635bff;--accent2:#00a88f;--gold:#f3b51b;--shadow:0 8px 26px #18233a12}
+[data-theme=dark]{--bg:#111521;--panel:#1b2130;--ink:#edf2ff;--muted:#9aa6bb;--line:#30394b;--accent:#8c86ff;--accent2:#32d6b5;--gold:#ffcf58;--shadow:0 8px 26px #0003}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer;border:1px solid var(--line);border-radius:12px;padding:10px 13px;background:var(--panel);color:var(--ink);transition:.15s}button:hover{transform:translateY(-1px);border-color:var(--accent)}button:disabled{opacity:.45;cursor:not-allowed;transform:none}.primary{background:var(--accent);color:white;border-color:transparent}.green{background:var(--accent2);color:#fff;border:0}.gold{color:#8a5b00;background:#fff5d5;border-color:#f3d37a}.app{max-width:1180px;margin:auto;padding:15px}.top{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--panel);padding:14px 17px;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}.brand{display:flex;align-items:center;gap:11px}.logo{width:45px;height:45px;border-radius:14px;background:linear-gradient(135deg,#655cff,#15c4a5);display:grid;place-items:center;color:white;font-size:24px;font-weight:900}.brand h1{font-size:18px;margin:0;letter-spacing:.5px}.brand small{color:var(--muted)}.stats{display:flex;gap:8px;flex-wrap:wrap}.stat{padding:8px 12px;border-radius:12px;background:var(--bg);border:1px solid var(--line);font-weight:700}.nav{display:flex;gap:7px;overflow:auto;margin:14px 0}.nav button{white-space:nowrap}.nav .active{background:var(--accent);color:white;border-color:var(--accent)}.layout{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(280px,.8fr);gap:14px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow);min-width:0}.panel h2{margin:0 0 12px;font-size:18px}.muted{color:var(--muted)}.basegrid,.elements{display:grid;grid-template-columns:repeat(auto-fill,minmax(105px,1fr));gap:9px}.tile{border:1px solid var(--line);background:var(--bg);border-radius:14px;padding:11px 7px;text-align:center;min-height:95px;position:relative}.tile .emoji{font-size:27px;display:block;margin-bottom:5px}.tile strong{display:block;font-size:13px}.tile small{color:var(--muted)}.tile .unimportant-tag{display:block;color:#e32636;font-size:10px;font-weight:800;line-height:1.2;margin-top:4px}.tile.selected{outline:2px solid var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--panel))}.tile .count{position:absolute;top:5px;left:6px;background:var(--accent);color:white;border-radius:20px;padding:2px 6px;font-size:11px}.combine{display:flex;align-items:center;justify-content:center;gap:10px;margin:14px 0;flex-wrap:wrap}.slot{min-width:88px;padding:13px;border:1px dashed var(--accent);border-radius:14px;text-align:center;font-size:23px;background:var(--bg)}.slot small{display:block;font-size:11px;color:var(--muted)}.result{padding:13px;border-radius:13px;background:color-mix(in srgb,var(--accent2) 12%,var(--panel));margin:10px 0;display:none}.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.row>*{flex:1}.search{width:100%;padding:11px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);margin-bottom:10px}.tabscontent{display:none}.tabscontent.show{display:block}.hintlist{display:grid;gap:8px}.hint{border:1px solid var(--line);border-radius:12px;padding:10px;display:flex;justify-content:space-between;align-items:center;gap:8px}.hint small{color:var(--muted)}.locked{filter:grayscale(1);opacity:.6}.notice{padding:10px 12px;border-radius:12px;background:var(--bg);color:var(--muted);margin:10px 0}.progress{height:9px;background:var(--line);border-radius:20px;overflow:hidden}.progress span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}.factorycard{border:1px solid var(--line);border-radius:13px;padding:12px;margin:9px 0}.factorycard h3{margin:0 0 7px;font-size:15px}.achievement{padding:10px;border-radius:12px;background:var(--bg);border:1px solid var(--line);margin:7px 0}.achievement.done{border-color:var(--accent2)}.footer{color:var(--muted);text-align:center;font-size:12px;padding:18px}.modal{position:fixed;inset:0;background:#0008;display:none;place-items:center;padding:15px;z-index:5}.modal.open{display:grid}.modalbox{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px;max-width:440px;width:100%}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--panel);padding:12px 18px;border-radius:12px;z-index:9;display:none}.toast.show{display:block}@media(max-width:780px){.layout{grid-template-columns:1fr}.top{align-items:flex-start}.stats{width:100%}.stat{flex:1;text-align:center}.basegrid,.elements{grid-template-columns:repeat(auto-fill,minmax(88px,1fr))}}
+.modal.open{display:grid}.modalbox .search{display:block;width:100%;margin:8px 0}.modalbox input{color:var(--ink)}.admin-details{margin-top:10px;border-top:1px solid var(--line);padding-top:9px}.admin-details summary{cursor:pointer;font-weight:700;color:var(--accent)}.admin-detail-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}.admin-chip{background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:5px 8px;font-size:12px}.admin-readonly{font-size:12px;color:var(--muted);margin-top:8px}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top"><div class="brand"><div class="logo">∞</div><div><h1>INFINITE ELEMENT TYCOON</h1><small id="subtitle">امزج العناصر، اكتشف عالمًا بلا حدود</small></div></div><div class="stats"><div class="stat">🪙 <span id="coins">12</span></div><div class="stat">⭐ Lv.<span id="level">1</span> · <span id="xp">0</span> XP</div><div class="stat">🧪 <span id="owned">4</span> عنصر</div><div class="stat">🏭 <span id="factorycount">0</span> مصنع</div><button id="theme">🌙</button><button id="lang">EN</button><button id="accountBtn">👤 الحساب</button></div></header>
+<nav class="nav" id="nav"><button class="active" data-tab="lab">🧪 المختبر</button><button data-tab="book">📚 الموسوعة</button><button data-tab="country">🏰 الدولة <small id="countryLock">🔒 Lv.20</small></button><button data-tab="quests">🏆 الإنجازات</button><button data-tab="settings">⚙️ الإعدادات</button></nav>
+<div id="lab" class="tabscontent show"><div class="layout">
+<section class="panel"><h2 id="labtitle">🧪 المختبر — اختر عنصرين للدمج</h2><input class="search" id="searchLab" placeholder="ابحث عن عنصر..." /><div id="inventory" class="elements"></div><div class="combine"><div class="slot" id="slot1">＋<small>العنصر الأول</small></div><b>✦</b><div class="slot" id="slot2">＋<small>العنصر الثاني</small></div><button class="primary" id="combine">ادمج!</button><button id="clear">مسح</button></div><div id="result" class="result"></div><div class="notice" id="labnote">اختار عنصرين مختلفين أو متشابهين. اكتشاف جديد يمنحك عملات!</div></section>
+<aside class="panel"><h2>💡 المساعد</h2><p class="muted">تلميح الوصفة يكشف تركيبة متاحة لك، والعنصر الكامل يضيف عنصرًا جديدًا مباشرة.</p><button id="recipeHint" class="gold" style="width:100%;margin-bottom:8px">🔎 تلميح الوصفة — 5 🪙</button><button id="fullElement" class="primary" style="width:100%">✨ العنصر الكامل — 10 🪙</button><div id="hints" class="hintlist"></div><h2 style="margin-top:18px">🌟 آخر الاكتشافات</h2><div id="recent" class="muted">ابدأ الدمج لتظهر اكتشافاتك هنا.</div></aside>
+</div></div>
+<div id="book" class="tabscontent"><section class="panel"><h2>📚 موسوعة العناصر</h2><p class="muted">العناصر المكتشفة تظهر بوضوح، والعناصر المقفولة تكشفها مقابل عملتين.</p><input class="search" id="searchBook" placeholder="ابحث في الموسوعة..." /><div class="row" style="margin-bottom:12px"><button id="showAll" class="primary">الكل</button><button id="showKnown">المكتشفة</button><button id="showLocked">المقفولة</button></div><div id="bookgrid" class="elements"></div></section></div>
+<div id="country" class="tabscontent"><section class="panel"><h2>🏰 الدولة — مملكة العناصر</h2><p class="muted">افتح الدولة عند المستوى 20. استثمر العملات في تطوير مملكتك، وارفع اقتصادك، وافتح المصانع.</p><div class="stats" style="margin:10px 0"><div class="stat">⭐ المستوى: <span id="countryLevel">1</span></div><div class="stat">🏗️ المباني: <span id="buildingCount">0</span></div></div><div id="countryActions" class="factorycard"></div></section><div class="layout"><section class="panel"><h2>🏭 إدارة المصانع</h2><p class="muted">المصانع تنتج تلقائيًا عناصر تمتلكها وتزيد رصيدك مع الوقت.</p><div id="factorylist"></div></section><aside class="panel"><h2>🚚 الشحن والبيع</h2><p>اجمع العناصر المنتجة ثم اشحنها لتحصل على عملات.</p><div class="stat">📦 مخزون الشحن: <span id="cargo">0</span></div><button class="green" id="ship" style="width:100%;margin-top:10px">شحن المخزون (+ عملات)</button><button id="buyfactory" class="primary" style="width:100%;margin-top:9px">شراء مصنع — 150 🪙 · مستوى 20</button><div class="notice">المصنع الجديد يفتح دورة إنتاج مستمرة. الإنتاج يتراكم أثناء اللعب.</div></aside></div></div>
+<div id="quests" class="tabscontent"><section class="panel"><h2>🏆 الإنجازات</h2><div id="achievements"></div></section></div>
+<div id="settings" class="tabscontent"><div class="layout"><section class="panel"><h2>⚙️ إعدادات اللعبة</h2><div class="row"><button id="toggleTheme">تبديل المظهر</button><button id="toggleLang">العربية / English</button></div><h3>إدارة اللعبة</h3>
+<div class="factorycard">
+ <h3>🔐 صفحة الأدمن</h3>
+ <p class="muted">لوحة الإدارة السحابية ستُفعّل بعد إعداد صلاحيات الأدمن الآمنة على الخادم.</p>
+ <button id="openAdminGate" class="primary" style="width:100%">🔑 دخول صفحة الأدمن</button>
+</div>
+<h3>📊 تقرير تقدم الحساب</h3><p class="muted">اضغط لإنشاء ملف يحتوي على مستوى الحساب، XP، العملات، العناصر المكتشفة، والإنجازات.</p><button class="green" id="achievementReport" style="width:100%;margin-bottom:12px">📄 تنزيل تقرير التقدم</button><h3>حفظ اللعبة</h3><p class="muted">الحساب المسجل يحفظ تقدمه في قاعدة بيانات Nhost بعد ضبط صلاحيات الجدول. يمكنك أيضًا تصدير نسخة احتياطية.</p><div class="row"><button class="primary" id="export">تصدير الحفظ</button><label style="text-align:center;border:1px solid var(--line);border-radius:12px;padding:10px;cursor:pointer">استيراد الحفظ<input type="file" id="import" accept=".json" hidden></label><button id="reset">بدء جديد</button></div></section><section class="panel"><h2>📖 طريقة اللعب</h2><p>• حدد عنصرين من حقيبتك واضغط «ادمج» لاكتشاف وصفات جديدة.</p><p>• كل اكتشاف جديد يكسبك عملات، وبعض العناصر تفتح تلميحات.</p><p>• اشترِ المصانع، دعها تنتج، ثم اشحن المخزون.</p><p>• افتح الموسوعة بالعملات لتتعرف على عناصر لم تكتشفها.</p></section></div></div>
+
+
+<div id="adminDashboard" class="tabscontent">
+ <section class="panel">
+  <div class="row"><h2>👑 لوحة إدارة اللعبة</h2><button id="adminBack">رجوع للإعدادات</button></div>
+  <p class="muted">لوحة الإدارة تحتاج صلاحية إدارية آمنة من الخادم، ولن تُفتح للاعبين العاديين.</p>
+  <div class="stats" style="margin-bottom:12px"><div class="stat">👥 اللاعبون: <span id="adminPlayers">0</span></div><div class="stat">🧪 إجمالي الاكتشافات: <span id="adminDiscoveries">0</span></div></div>
+  <div id="adminPlayerList"></div>
+  
+ </section>
+</div>
+<div class="footer">INFINITE ELEMENT TYCOON · حفظ محلي · تجربة أولية قابلة للتطوير</div>
+</div>
+<div id="authScreen" class="modal open" style="z-index:20">
+ <div class="modalbox" style="max-width:480px">
+  <h2>👤 مركز الحسابات</h2>
+  <p class="muted">سجّل الدخول، أنشئ حسابًا، أو العب كضيف.</p>
+  <p id="authMessage" class="notice" role="status" aria-live="polite" style="display:none;color:var(--ink);border:1px solid var(--line)"></p>
+  <div class="factorycard">
+   <h3>تسجيل الدخول</h3>
+   <input id="loginUser" class="search" type="email" placeholder="البريد الإلكتروني" autocomplete="email">
+   <input id="loginPass" class="search" placeholder="كلمة المرور" type="password" autocomplete="current-password">
+   <button id="loginBtn" class="primary" style="width:100%">دخول</button>
+  </div>
+  <div class="factorycard">
+   <h3>إنشاء حساب جديد</h3>
+   <input id="registerUser" class="search" type="email" placeholder="البريد الإلكتروني" autocomplete="email">
+   <input id="registerPass" class="search" placeholder="كلمة مرور (8 أحرف على الأقل)" type="password">
+   <button id="registerBtn" class="green" style="width:100%">إنشاء الحساب</button>
+   <button id="resendVerifyBtn" style="width:100%;margin-top:8px">إعادة إرسال رسالة تأكيد البريد</button>
+  </div>
+  <button id="guestBtn" style="width:100%">الدخول كضيف بدون حساب</button>
+  <p class="muted" style="font-size:11px;margin-bottom:0">الحسابات المسجلة تستخدم Nhost. الضيف يُحفظ محليًا على هذا الجهاز فقط.</p>
+ </div>
+</div>
+
+<div id="adminGate" class="modal" style="z-index:25">
+ <div class="modalbox">
+  <h2>🔐 دخول الأدمن</h2>
+  <p class="muted">هذه اللوحة متاحة بعد تسجيل الدخول بحساب MONOS.</p>
+  <input id="adminCode" class="search" type="password" inputmode="numeric" placeholder="رمز الدخول">
+  <p id="adminGateError" class="muted" style="color:#d44;display:none">رمز الدخول غير صحيح. حاول مرة أخرى.</p>
+  <div class="row"><button id="adminCodeSubmit" class="primary">دخول</button><button id="adminCodeCancel">إلغاء</button></div>
+ </div>
+</div>
+<div id="toast" class="toast"></div><div id="modal" class="modal"><div class="modalbox"><h2 id="modaltitle">تأكيد</h2><p id="modaltext"></p><div class="row"><button class="primary" id="modalok">موافق</button><button id="modalcancel">إلغاء</button></div></div></div>
+<script type="module">
+// Load the Nhost SDK only when a player chooses an account action.
+// This keeps the game interface available even if the external SDK CDN is temporarily unavailable.
+let nhostClient = null;
+async function getNhost(){
+ if(!nhostClient){
+  const sdk = await import("https://esm.sh/@nhost/nhost-js@4.9.0");
+  nhostClient = sdk.createClient({ subdomain: "tnxnkgvtvypocjkzfzul", region: "eu-central-1" });
+ }
+ return nhostClient;
+}
+async function generatePKCEPair(){
+ const authSdk = await import("https://esm.sh/@nhost/nhost-js@4.9.0/auth");
+ if(typeof authSdk.generatePKCEPair !== "function") throw new Error("تعذر تحميل أداة تأكيد البريد. جرّب مرة أخرى لاحقًا.");
+ return authSdk.generatePKCEPair();
+}
+let cloudUser = null;
+try{localStorage.removeItem("iet-chat-inbox")}catch(e){}
+const E=[
+["earth","الأرض","Earth","🌍"],["fire","النار","Fire","🔥"],["air","الهواء","Air","💨"],["water","الماء","Water","💧"],
+["lava","الحمم","Lava","🌋"],["stone","الحجر","Stone","🪨"],["ore","الخامة","Ore","⛏️"],["steam","البخار","Steam","♨️"],["dust","الغبار","Dust","🌫️"],["mud","الطين","Mud","🟤"],["rain","المطر","Rain","🌧️"],["cloud","السحاب","Cloud","☁️"],["energy","الطاقة","Energy","⚡"],["metal","المعدن","Metal","🔩"],["sand","الرمل","Sand","🏜️"],["glass","الزجاج","Glass","🪟"],["plant","النبات","Plant","🌱"],["wood","الخشب","Wood","🪵"],["coal","الفحم","Coal","⚫"],["ash","الرماد","Ash","🌑"],["life","الحياة","Life","🧬"],["ocean","المحيط","Ocean","🌊"],["ice","الجليد","Ice","🧊"],["snow","الثلج","Snow","❄️"],["lightning","البرق","Lightning","🌩️"],["sun","الشمس","Sun","☀️"],["moon","القمر","Moon","🌙"],["star","النجم","Star","⭐"],["planet","الكوكب","Planet","🪐"],["space","الفضاء","Space","🌌"],["electricity","الكهرباء","Electricity","🔌"],["magnet","المغناطيس","Magnet","🧲"],["copper","النحاس","Copper","🟠"],["iron","الحديد","Iron","⛓️"],["gold","الذهب","Gold","🥇"],["diamond","الألماس","Diamond","💎"],["pressure","الضغط","Pressure","🗜️"],["crystal","الكريستال","Crystal","🔮"],["flower","الزهرة","Flower","🌸"],["forest","الغابة","Forest","🌳"],["seed","البذرة","Seed","🌰"],["fruit","الفاكهة","Fruit","🍎"],["animal","الحيوان","Animal","🐾"],["human","الإنسان","Human","🧑"],["bacteria","البكتيريا","Bacteria","🦠"],["medicine","الدواء","Medicine","💊"],["science","العلم","Science","🔬"],["machine","الآلة","Machine","⚙️"],["robot","الروبوت","Robot","🤖"],["computer","الحاسوب","Computer","💻"],["internet","الإنترنت","Internet","🌐"],["data","البيانات","Data","📊"],["music","الموسيقى","Music","🎵"],["sound","الصوت","Sound","🔊"],["wind","الرياح","Wind","🌬️"],["storm","العاصفة","Storm","🌪️"],["volcano","البركان","Volcano","🌋"],["earthquake","الزلزال","Earthquake","🫨"],["mountain","الجبل","Mountain","⛰️"],["river","النهر","River","🏞️"],["lake","البحيرة","Lake","🛶"],["salt","الملح","Salt","🧂"],["sugar","السكر","Sugar","🍬"],["bread","الخبز","Bread","🍞"],["food","الطعام","Food","🍲"],["cooking","الطبخ","Cooking","🍳"],["oil","الزيت","Oil","🛢️"],["gas","الغاز","Gas","⛽"],["fuel","الوقود","Fuel","🛢️"],["engine","المحرك","Engine","🚗"],["car","السيارة","Car","🚙"],["train","القطار","Train","🚆"],["airplane","الطائرة","Airplane","✈️"],["ship","السفينة","Ship","🚢"],["rocket","الصاروخ","Rocket","🚀"],["satellite","القمر الصناعي","Satellite","🛰️"],["astronaut","رائد الفضاء","Astronaut","🧑‍🚀"],["comet","المذنب","Comet","☄️"],["meteor","النيزك","Meteor","🌠"],["galaxy","المجرة","Galaxy","🌌"],["blackhole","الثقب الأسود","Black Hole","🕳️"],["time","الزمن","Time","⏳"],["gravity","الجاذبية","Gravity","🌀"],["atom","الذرة","Atom","⚛️"],["molecule","الجزيء","Molecule","🧪"],["chemistry","الكيمياء","Chemistry","🧫"],["oxygen","الأكسجين","Oxygen","🫧"],["hydrogen","الهيدروجين","Hydrogen","H₂"],["carbon","الكربون","Carbon","C"],["plastic","البلاستيك","Plastic","🧴"],["rubber","المطاط","Rubber","🛞"],["paper","الورق","Paper","📄"],["book","الكتاب","Book","📕"],["knowledge","المعرفة","Knowledge","🧠"],["school","المدرسة","School","🏫"],["city","المدينة","City","🏙️"],["house","المنزل","House","🏠"],["brick","الطوب","Brick","🧱"],["cement","الأسمنت","Cement","🏗️"],["tool","الأداة","Tool","🛠️"],["weapon","السلاح","Weapon","🛡️"],["armor","الدرع","Armor","🦺"],["shield","الترس","Shield","🛡️"],["war","الحرب","War","⚔️"],["peace","السلام","Peace","🕊️"],["kingdom","المملكة","Kingdom","👑"],["treasure","الكنز","Treasure","💰"],["coin","العملة","Coin","🪙"],["trade","التجارة","Trade","🤝"],["market","السوق","Market","🏪"],["factory","المصنع","Factory","🏭"],["tycoon","رائد الأعمال","Tycoon","📈"],["wealth","الثروة","Wealth","💸"],["rainbow","قوس قزح","Rainbow","🌈"],["color","اللون","Color","🎨"],["paint","الطلاء","Paint","🖌️"],["art","الفن","Art","🖼️"],["design","التصميم","Design","✏️"],["game","اللعبة","Game","🎮"],["magic","السحر","Magic","✨"],["fairy","الجنية","Fairy","🧚"],["dragon","التنين","Dragon","🐉"],["monster","الوحش","Monster","👾"],["hero","البطل","Hero","🦸"],["adventure","المغامرة","Adventure","🗺️"],["desert","الصحراء","Desert","🐪"],["pyramid","الهرم","Pyramid","🔺"],["egypt","مصر","Egypt","🇪🇬"],["nile","النيل","Nile","🏞️"],["pharaoh","الفرعون","Pharaoh","👑"],["history","التاريخ","History","📜"],["future","المستقبل","Future","🔮"],["infinity","اللانهاية","Infinity","♾️"],["dimension","البُعد","Dimension","🌀"],["multiverse","الأكوان المتعددة","Multiverse","🌌"],["quantum","الكم","Quantum","⚛️"],["nanotech","تقنية النانو","Nanotech","🔬"],["biotech","التقنية الحيوية","Biotech","🧬"],["evolution","التطور","Evolution","🦋"],["ecosystem","النظام البيئي","Ecosystem","🌿"],["recycling","إعادة التدوير","Recycling","♻️"],["battery","البطارية","Battery","🔋"],["solarcell","الخلية الشمسية","Solar Cell","☀️"],["windmill","طاحونة الرياح","Windmill","🌬️"],["hydropower","الطاقة المائية","Hydropower","💦"],["nuclear","الطاقة النووية","Nuclear","☢️"],["fusion","الاندماج","Fusion","🌟"],["plasma","البلازما","Plasma","🔆"],["aurora","الشفق القطبي","Aurora","🌌"],["tornado","الإعصار","Tornado","🌪️"],["hurricane","الإعصار المداري","Hurricane","🌀"],["flood","الفيضان","Flood","🌊"],["drought","الجفاف","Drought","🏜️"],["rainforest","الغابة المطيرة","Rainforest","🌴"],["coral","المرجان","Coral","🪸"],["fish","السمكة","Fish","🐟"],["whale","الحوت","Whale","🐋"],["bird","الطائر","Bird","🐦"],["egg","البيضة","Egg","🥚"],["dinosaur","الديناصور","Dinosaur","🦖"],["fossil","الحفرية","Fossil","🦴"],["museum","المتحف","Museum","🏛️"],["library","المكتبة","Library","📚"],["teacher","المعلم","Teacher","🧑‍🏫"],["student","الطالب","Student","🎓"],["brain","المخ","Brain","🧠"],["dream","الحلم","Dream","💭"],["emotion","المشاعر","Emotion","❤️"],["happiness","السعادة","Happiness","😊"],["hope","الأمل","Hope","🌅"],["friendship","الصداقة","Friendship","🫶"],["community","المجتمع","Community","👥"],["festival","المهرجان","Festival","🎉"],["celebration","الاحتفال","Celebration","🎊"],["sport","الرياضة","Sport","⚽"],["football","كرة القدم","Football","⚽"],["champion","البطل","Champion","🏅"],["trophy","الكأس","Trophy","🏆"],["potion","الإكسير","Potion","🧪"],["elixir","إكسير الحياة","Elixir","✨"],["portal","البوابة","Portal","🌀"],["dimensiongate","بوابة الأبعاد","Dimension Gate","🚪"],["cosmicdust","الغبار الكوني","Cosmic Dust","🌠"],["stardust","غبار النجوم","Stardust","✨"],["nebula","السديم","Nebula","☁️"],["supernova","المستعر الأعظم","Supernova","💥"],["universe","الكون","Universe","🌌"],["multielement","العنصر المتعدد","Multi Element","∞"]
+];
+const R=[
+ ["earth|fire","lava"],
+ ["lava|water","stone"],
+ ["earth|water","mud"],
+ ["earth|air","dust"],
+ ["stone|air","sand"],
+ ["fire|water","steam"],
+ ["air|water","cloud"],
+ ["cloud|water","rain"],
+ ["mud|fire","brick"],
+ ["sand|fire","glass"],
+ ["wood|fire","ash"],
+ ["water|water","ocean"],
+ ["cloud|electricity","lightning"],
+ ["wind|cloud","storm"],
+ ["wind|storm","tornado"],
+ ["ocean|storm","hurricane"],
+ ["rain|river","flood"],
+ ["forest|rain","rainforest"],
+ ["ocean|life","coral"],
+ ["plant|science","medicine"],
+ ["human|knowledge","science"],
+ ["metal|human","tool"],
+ ["machine|energy","robot"],
+ ["machine|data","computer"],
+ ["computer|computer","data"],
+ ["fire|air","energy"],
+ ["earth|energy","earthquake"],
+ ["earth|stone","mountain"],
+ ["water|stone","lake"],
+ ["water|mountain","river"],
+ ["ocean|sun","salt"],
+ ["plant|energy","sugar"],
+ ["bread|fire","food"],
+ ["food|fire","cooking"],
+ ["plant|machine","oil"],
+ ["oil|earth","gas"],
+ ["gas|fire","fuel"],
+ ["fuel|metal","engine"],
+ ["engine|metal","car"],
+ ["engine|air","airplane"],
+ ["metal|water","ship"],
+ ["rocket|computer","satellite"],
+ ["satellite|human","astronaut"],
+ ["space|ice","comet"],
+ ["space|stone","meteor"],
+ ["gravity|space","blackhole"],
+ ["atom|atom","molecule"],
+ ["molecule|science","chemistry"],
+ ["water|electricity","hydrogen"],
+ ["oil|energy","plastic"],
+ ["wood|tool","paper"],
+ ["paper|knowledge","book"],
+ ["book|human","knowledge"],
+ ["stone|wood","house"],
+ ["human|house","city"],
+ ["metal|wood","shield"],
+ ["sand|energy","crystal"],
+ ["ore|river","gold"],
+ ["metal|gold","coin"],
+ ["human|coin","trade"],
+ ["trade|human","market"],
+ ["metal|machine","factory"],
+ ["market|human","tycoon"],
+ ["coin|trade","wealth"],
+ ["rain|sun","rainbow"],
+ ["rainbow|sun","color"],
+ ["color|oil","paint"],
+ ["paint|human","art"],
+ ["art|science","design"],
+ ["computer|art","game"],
+ ["sand|sun","desert"],
+ ["stone|egypt","pyramid"],
+ ["desert|human","egypt"],
+ ["river|egypt","nile"],
+ ["egypt|kingdom","pharaoh"],
+ ["book|time","history"],
+ ["time|space","future"],
+ ["time|energy","infinity"],
+ ["space|space","dimension"],
+ ["dimension|space","multiverse"],
+ ["atom|energy","quantum"],
+ ["science|machine","nanotech"],
+ ["science|life","biotech"],
+ ["life|time","evolution"],
+ ["plant|animal","ecosystem"],
+ ["wind|machine","windmill"],
+ ["water|machine","hydropower"],
+ ["sun|energy","fusion"],
+ ["sun|space","aurora"],
+ ["animal|water","egg"],
+ ["stone|time","fossil"],
+ ["fossil|human","museum"],
+ ["book|book","library"],
+ ["human|life","emotion"],
+ ["emotion|sun","happiness"],
+ ["emotion|time","hope"],
+ ["human|city","community"],
+ ["community|art","festival"],
+ ["festival|human","celebration"],
+ ["human|energy","sport"],
+ ["champion|gold","trophy"],
+ ["seed|water","plant"],
+ ["plant|time","flower"],
+ ["flower|animal","fruit"],
+ ["wood|time","coal"],
+ ["cloud|ice","snow"],
+ ["water|life","fish"],
+ ["sun|plant","oxygen"],
+ ["sun|air","wind"],
+ ["computer|satellite","internet"],
+ ["planet|meteor","moon"],
+ ["earth|mountain","ore"],
+ ["stone|fire","cement"],
+ ["carbon|pressure","diamond"],
+ ["star|dust","stardust"],
+ ["space|stardust","galaxy"],
+ ["egg|air","bird"],
+ ["fire|energy","plasma"]
+];
+// ضبط الوصفات: كل نتيجة لها وصفة واحدة، وكل زوج مكونات ينتج نتيجة واحدة.
+const recipePairsSeen=new Set(),recipeResultsSeen=new Set();
+const uniqueRecipes=R.filter(([pair,result])=>{const key=pair.split("|").sort().join("|");if(recipePairsSeen.has(key)||recipeResultsSeen.has(result))return false;recipePairsSeen.add(key);recipeResultsSeen.add(result);return true;});
+R.splice(0,R.length,...uniqueRecipes);
+// العناصر التي لا تُستخدم كمكونات في أي وصفة حالية تُعلَّم بأنها غير مهمة.
+const usedAsIngredient=new Set(R.flatMap(([pair])=>pair.split("|")));
+const unimportantElements=new Set(E.map(e=>e[0]).filter(id=>!usedAsIngredient.has(id)));
+const byId=Object.fromEntries(E.map(e=>[e[0],e]));
+const $=id=>document.getElementById(id);
+const blankState=()=>({coins:12,xp:0,level:1,owned:["earth","fire","air","water"],counts:{earth:1,fire:1,air:1,water:1},revealed:[],factories:0,cargo:0,produced:0,discoveries:0,history:[],selected:[],lastRecipeHint:null,recipeHintHistory:[],theme:"light",lang:"ar",filter:"all",country:{name:"مملكة العناصر",buildings:0},last:Date.now()});
+let state=blankState(), currentPlayer=null, isAdmin=false, adminUnlocked=false;
+function storageAvailable(){
+ try{const k="iet-storage-test";localStorage.setItem(k,"1");localStorage.removeItem(k);return true}catch(e){return false}
+}
+function getPlayers(){
+ try{const value=JSON.parse(localStorage.getItem("iet-players")||"{}");return value&&typeof value==="object"&&!Array.isArray(value)?value:{}}catch(e){return {}}
+}
+function putPlayers(players){
+ try{localStorage.setItem("iet-players",JSON.stringify(players));return true}catch(e){return false}
+}
+function getLevel(xp=state.xp||0){let level=1,need=100,total=Math.max(0,Number(xp)||0);while(total>=need&&level<1000){total-=need;level++;need=100+(level-1)*50}return level}
+function xpReward(id){const i=E.findIndex(e=>e[0]===id);return i<15?10:i<40?20:i<75?35:i<115?55:i<160?80:120}
+function awardDiscoveryXP(id){state.xp=(Number(state.xp)||0)+xpReward(id);state.level=getLevel(state.xp)}
+function escapeHtml(v){return String(v).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function name(id){let e=byId[id];return e?(state.lang==="ar"?e[1]:e[2]):id}
+function save(){
+ if(!currentPlayer)return;
+ state.level=getLevel(state.xp||0);
+ try{localStorage.setItem("iet-local-save-"+currentPlayer,JSON.stringify(state))}catch(e){}
+ if(cloudUser){
+  const snapshot=JSON.parse(JSON.stringify(state));
+  getNhost().then(client=>client.graphql.request({query:`mutation SavePlayer($user_id: uuid!, $save_data: jsonb!) { insert_player_saves_one(object:{user_id:$user_id, save_data:$save_data}, on_conflict:{constraint:player_saves_pkey, update_columns:[save_data,updated_at]}) { user_id } }`,variables:{user_id:cloudUser.id,save_data:snapshot}}))
+   .then(r=>{if(r.error)throw r.error;})
+   .catch(err=>{console.warn("Cloud save failed",err);toast("تعذر الحفظ السحابي. نحتاج ضبط صلاحيات الجدول.")});
+ }
+}
+function load(){
+ try{const cached=JSON.parse(localStorage.getItem("iet-local-save-"+currentPlayer)||"null");state=cached?{...blankState(),...cached}:blankState()}catch(e){state=blankState()}
+ state.xp=Number(state.xp)||0;state.level=getLevel(state.xp);state.country=state.country||{name:"مملكة العناصر",buildings:0};if(!Array.isArray(state.recipeHintHistory))state.recipeHintHistory=[];if(state.lastRecipeHint&&typeof state.lastRecipeHint.stage!=="number")state.lastRecipeHint.stage=1;
+}
+async function loadCloudSave(){
+ if(!cloudUser)return;
+ const client=await getNhost();
+ const r=await client.graphql.request({query:`query PlayerSave($user_id: uuid!) { player_saves_by_pk(user_id:$user_id) { save_data } }`,variables:{user_id:cloudUser.id}});
+ if(r.error)throw r.error;
+ const data=r.body?.data?.player_saves_by_pk?.save_data;
+ if(data&&typeof data==="object"){state={...blankState(),...data};state.xp=Number(state.xp)||0;state.level=getLevel(state.xp);state.country=state.country||{name:"مملكة العناصر",buildings:0};if(!Array.isArray(state.recipeHintHistory))state.recipeHintHistory=[];}
+}
+async function enterPlayer(username, admin=false){
+ currentPlayer=username;isAdmin=false;adminUnlocked=false;load();
+ if(cloudUser){try{await loadCloudSave()}catch(e){console.error(e);accountMessage("تم تسجيل الدخول، لكن قراءة الحفظ السحابي لم تنجح. صلاحيات الجدول لم تُضبط بعد.");}}
+ $("authScreen").classList.remove("open");$("accountBtn").textContent="👤 "+(cloudUser?(cloudUser.email||"حسابي"):"ضيف");
+ theme();lang();drawAll();
+}
+function accountMessage(message){
+ const box=$("authMessage");
+ if(box){box.textContent=message;box.style.display="block";}
+ else toast(message);
+}
+function clearAccountMessage(){const box=$("authMessage");if(box){box.textContent="";box.style.display="none";}}
+async function loginPlayer(){
+ clearAccountMessage();const email=$("loginUser").value.trim(),password=$("loginPass").value;
+ if(!email||!password)return accountMessage("اكتب البريد الإلكتروني وكلمة المرور.");
+ try{const client=await getNhost();const r=await client.auth.signInEmailPassword({email,password});if(r.error)throw r.error;const session=r.body?.session;if(!session)return accountMessage("راجع بريدك الإلكتروني إذا طُلب منك تأكيد الحساب.");cloudUser=session.user||r.body?.user||null;if(!cloudUser?.id)throw new Error("Missing user");await enterPlayer(cloudUser.id,false);toast("تم تسجيل الدخول بنجاح!");}
+ catch(err){console.error(err);accountMessage("تعذر تسجيل الدخول. تأكد من البريد وكلمة المرور وإعدادات Nhost.");}
+}
+function verificationRedirect(){
+ if(!/^https?:$/.test(location.protocol))throw new Error("افتح اللعبة من رابط منشور يبدأ بـ https:// لإكمال تأكيد البريد. فتح ملف HTML مباشرة لا يدعم الرجوع الآمن من رسالة التأكيد.");
+ return location.origin+location.pathname;
+}
+async function registerPlayer(){
+ clearAccountMessage();const email=$("registerUser").value.trim(),password=$("registerPass").value;
+ if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))return accountMessage("اكتب بريدًا إلكترونيًا صحيحًا.");
+ if(password.length<8)return accountMessage("كلمة المرور لازم تكون 8 أحرف على الأقل.");
+ try{
+  const redirectTo=verificationRedirect();
+  const {verifier,challenge}=await generatePKCEPair();
+  localStorage.setItem("nhost_pkce_verifier",verifier);
+  const client=await getNhost();
+  const r=await client.auth.signUpEmailPassword({email,password,options:{redirectTo},codeChallenge:challenge});
+  if(r.error)throw r.error;
+  const session=r.body?.session;
+  if(!session){accountMessage("تم إنشاء الحساب. افتح رسالة التأكيد في بريدك من نفس المتصفح والجهاز الذي سجلت منه. بعد الضغط على الرابط، ستعود اللعبة وتُكمل الدخول تلقائيًا.");return;}
+  cloudUser=session.user||r.body?.user||null;if(!cloudUser?.id)throw new Error("Missing user");state=blankState();await enterPlayer(cloudUser.id,false);save();toast("تم إنشاء الحساب بنجاح!");
+ }catch(err){console.error(err);accountMessage(err?.message?.includes("https://")?err.message:(err?.message||"تعذر إنشاء الحساب. تأكد من البريد وأنه غير مستخدم من قبل."));}
+}
+async function resendVerification(){
+ clearAccountMessage();const email=$("loginUser").value.trim()||$("registerUser").value.trim();
+ if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))return accountMessage("اكتب بريدك الإلكتروني في خانة البريد أولًا.");
+ try{
+  const redirectTo=verificationRedirect();
+  const {verifier,challenge}=await generatePKCEPair();
+  localStorage.setItem("nhost_pkce_verifier",verifier);
+  const client=await getNhost();
+  const r=await client.auth.userEmailSendVerificationEmail({email,options:{redirectTo},codeChallenge:challenge});
+  if(r.error)throw r.error;
+  accountMessage("طلبنا إرسال رسالة تأكيد جديدة. افتحها من نفس الجهاز والمتصفح.");
+ }catch(err){console.error(err);accountMessage(err?.message||"تعذر إرسال رسالة التأكيد. جرّب لاحقًا.");}
+}
+async function handleNhostVerificationReturn(){
+ const code=new URLSearchParams(location.search).get("code");
+ if(!code)return;
+ const verifier=localStorage.getItem("nhost_pkce_verifier");
+ if(!verifier){accountMessage("وصلنا من رسالة التأكيد، لكن رمز التحقق المحلي غير موجود. افتح اللعبة من نفس الجهاز والمتصفح الذي طلب الرسالة.");return;}
+ try{
+  const client=await getNhost();
+  const result=await client.auth.tokenExchange({code,codeVerifier:verifier});
+  localStorage.removeItem("nhost_pkce_verifier");
+  const session=result?.body?.session||client.getUserSession?.();
+  cloudUser=session?.user||null;
+  if(!cloudUser?.id)throw new Error("تم تأكيد البريد، لكن لم يتم استلام جلسة الدخول. جرّب تسجيل الدخول الآن.");
+  await enterPlayer(cloudUser.id,false);save();
+  history.replaceState({},document.title,location.pathname);
+  accountMessage("تم تأكيد البريد وتسجيل الدخول بنجاح!");
+ }catch(err){console.error(err);accountMessage(err?.message||"تعذر إكمال تأكيد البريد. أعد طلب رسالة التأكيد.");}
+}
+function enterGuest(){cloudUser=null;const id="guest-"+Date.now();currentPlayer=id;isAdmin=false;adminUnlocked=false;state=blankState();try{localStorage.setItem("iet-local-save-"+id,JSON.stringify(state))}catch(e){}$("authScreen").classList.remove("open");$("accountBtn").textContent="👤 ضيف";theme();lang();drawAll();}
+function toast(s){let t=$("toast");t.textContent=s;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2100)}
+function drawStats(){state.level=getLevel(state.xp||0);$("coins").textContent=state.coins;$("level").textContent=state.level;$("xp").textContent=state.xp||0;$("owned").textContent=state.owned.length;$("factorycount").textContent=state.factories;$("cargo").textContent=state.cargo}
+function drawInventory(){let q=$("searchLab").value.trim().toLowerCase();$("inventory").innerHTML=state.owned.filter(id=>name(id).toLowerCase().includes(q)||id.includes(q)).map(id=>{let e=byId[id];return `<button class="tile ${state.selected.includes(id)?'selected':''}" data-pick="${id}"><span class="emoji">${e[3]}</span><strong>${name(id)}</strong>${unimportantElements.has(id)?'<small class="unimportant-tag">غير مهم</small>':''}</button>`}).join("");document.querySelectorAll("[data-pick]").forEach(b=>b.onclick=()=>pick(b.dataset.pick));drawSlots()}
+function pick(id){if(state.selected.length>=2){state.selected=[]}if(state.selected.includes(id)){state.selected=state.selected.filter(x=>x!==id)}else state.selected.push(id);drawInventory()}
+function drawSlots(){for(let i=0;i<2;i++){let el=$("slot"+(i+1)),id=state.selected[i];el.innerHTML=id?`${byId[id][3]}<small>${name(id)}</small>`:`＋<small>${state.lang==="ar"?(i?"العنصر الثاني":"العنصر الأول"):(i?"Second element":"First element")}</small>`}}
+function recipe(a,b){
+ // الوصفة المطلوبة: الحمم + الماء = الحجر فقط، بغض النظر عن ترتيب الاختيار.
+ if((a==="lava"&&b==="water")||(a==="water"&&b==="lava"))return "stone";
+ let key=a+"|"+b,rev=b+"|"+a;let r=R.find(x=>x[0]===key||x[0]===rev);return r?r[1]:null
+}
+function combine(){if(state.selected.length!==2)return toast("اختار عنصرين الأول!");let [a,b]=state.selected;let res=recipe(a,b);if(!res)return toast("التركيبة دي لسه مش معروفة — جرّب عناصر تانية!");if(!byId[res])return toast("وصفة غير متاحة بعد");let fresh=!state.owned.includes(res);if(fresh){state.owned.push(res);state.counts[res]=1;state.coins+=3;state.discoveries++;awardDiscoveryXP(res);state.lastRecipeHint=null;state.history.unshift(res);state.history=state.history.slice(0,7);$("result").style.display="block";$("result").innerHTML=`🎉 اكتشاف جديد! <b>${byId[res][3]} ${name(res)}</b><br><small>+3 عملات · +${xpReward(res)} XP · المستوى ${state.level}</small>`;toast("اكتشاف جديد! +3 🪙")}else{$("result").style.display="block";$("result").innerHTML=`<b>عذرًا، هذا العنصر موجود بالفعل.</b>`;toast("عذرًا، هذا العنصر موجود بالفعل.");state.selected=[];save();drawAll();return};state.selected=[];save();drawAll()}
+function drawHints(){
+  const h=state.lastRecipeHint;
+  if(!h){
+   $("hints").innerHTML='<p class="muted">استخدم «تلميح الوصفة» لمعرفة خلطة جديدة على مرحلتين.</p>';
+   return;
+  }
+  const secondVisible=h.stage>=2;
+  $("hints").innerHTML=`<div class="hint" style="justify-content:center;flex-wrap:wrap;text-align:center">
+   <div style="width:100%"><b>💡 تلميح الوصفة</b></div>
+   <div class="slot" style="min-width:90px">${byId[h.known][3]}<small>${name(h.known)}</small></div>
+   <b style="font-size:22px">＋</b>
+   <div class="slot" style="min-width:90px">${secondVisible?byId[h.second][3]:"❔"}<small>${secondVisible?name(h.second):"عنصر غير معروف"}</small></div>
+   <p class="muted" style="width:100%;margin:4px 0 0">${secondVisible?"اكتملت الخلطة! اضغط مرة أخرى لبدء تلميح جديد.":"اضغط مرة أخرى مقابل 5 عملات لكشف العنصر الثاني."}</p>
+  </div>`;
+}
+function giveRecipeHint(){
+  if(state.coins<5)return toast("تحتاج إلى 5 عملات للحصول على التلميح");
+  // إذا كان التلميح الحالي في مرحلته الأولى، اكشف العنصر الثاني دون تغيير الأول.
+  if(state.lastRecipeHint && state.lastRecipeHint.stage===1){
+   state.coins-=5;
+   state.lastRecipeHint.stage=2;
+   save();drawAll();toast("تم كشف العنصر الثاني واكتملت الخلطة!");
+   return;
+  }
+  // لا نبدأ تلميحًا جديدًا إلا بعد اكتمال السابق.
+  const history=Array.isArray(state.recipeHintHistory)?state.recipeHintHistory:[];
+  const candidates=R.map(r=>{
+    const parts=r[0].split("|");
+    const pair=[...parts].sort().join("|");
+    return {parts,result:r[1],pair};
+  }).filter(x=>x.parts.length===2 &&
+    x.parts.every(id=>state.owned.includes(id)) &&
+    !state.owned.includes(x.result) &&
+    !!byId[x.result]);
+  // تجنب إعادة نفس الخلطة، مع السماح بالتكرار عند نفاد الخلطات الجديدة.
+  let available=candidates.filter(x=>!history.includes(x.pair));
+  if(!available.length)available=candidates;
+  if(!available.length)return toast("لا توجد خلطة مناسبة حاليًا بعناصرك. لم يتم خصم أي عملات.");
+  const choice=available[Math.floor(Math.random()*available.length)];
+  const knownIndex=Math.floor(Math.random()*2);
+  const known=choice.parts[knownIndex], second=choice.parts[1-knownIndex];
+  state.coins-=5;
+  state.lastRecipeHint={known,second,result:choice.result,stage:1,pair:choice.pair};
+  if(!Array.isArray(state.recipeHintHistory))state.recipeHintHistory=[];
+  state.recipeHintHistory.push(choice.pair);
+  save();drawAll();toast("ظهر العنصر الأول! اضغط مرة أخرى لكشف الثاني مقابل 5 عملات.");
+}
+function giveFullElement(){
+ const undiscovered=E.filter(e=>!state.owned.includes(e[0]));
+ if(!undiscovered.length)return toast("لقد اكتشفت كل العناصر!");
+ if(state.coins<10)return toast("تحتاج إلى 10 عملات");
+ const e=undiscovered[Math.floor(Math.random()*undiscovered.length)];
+ state.coins-=10;state.owned.push(e[0]);state.counts[e[0]]=1;state.discoveries++;awardDiscoveryXP(e[0]);
+ state.history.unshift(e[0]);state.history=state.history.slice(0,7);
+ state.lastRecipeHint=null;
+ $("result").style.display="block";$("result").innerHTML=`✨ العنصر الكامل: <b>${e[3]} ${name(e[0])}</b><br><small>تمت إضافته إلى حقيبتك في المختبر</small>`;
+ save();drawAll();toast("تمت إضافة العنصر إلى المختبر!");
+}
+function drawRecent(){$("recent").innerHTML=state.history.length?state.history.map(id=>`${byId[id][3]} ${name(id)}`).join(" · "):"ابدأ الدمج لتظهر اكتشافاتك هنا."}
+function drawBook(){let q=$("searchBook").value.toLowerCase();let arr=E.filter(e=>(state.filter==="all"||(state.filter==="known"&&state.owned.includes(e[0]))||(state.filter==="locked"&&!state.owned.includes(e[0])))&&(name(e[0]).toLowerCase().includes(q)||e[0].includes(q)));$("bookgrid").innerHTML=arr.map(e=>{let known=state.owned.includes(e[0]),open=known||state.revealed.includes(e[0]);return `<button class="tile ${!open?'locked':''}" data-open="${e[0]}"><span class="emoji">${open?e[3]:"❔"}</span><strong>${open?name(e[0]):"؟؟؟"}</strong><small>${known?"تم اكتشافه":open?"تم كشفه":"كشف مقابل 2 🪙"}</small>${open&&unimportantElements.has(e[0])?'<small class="unimportant-tag">غير مهم</small>':''}</button>`}).join("");document.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>{let id=b.dataset.open;if(state.owned.includes(id)||state.revealed.includes(id))return;if(state.coins<2)return toast("تحتاج عملتين");state.coins-=2;state.revealed.push(id);save();drawAll()})}
+function drawFactories(){let html="";for(let i=0;i<state.factories;i++){let per=1+i*.5;html+=`<div class="factorycard"><h3>🏭 مصنع رقم ${i+1}</h3><p class="muted">ينتج ${per.toFixed(1)} وحدة في كل دورة</p><div class="progress"><span style="width:${Math.min(100,((Date.now()-state.last)%10000)/100)}%"></span></div><small>الإنتاج تلقائي كل 10 ثوانٍ</small></div>`}$("factorylist").innerHTML=html||'<div class="notice">لسه مفيش مصانع. اشترِ أول مصنع وابدأ الإنتاج!</div>'}
+function drawAchievements(){let a=[["discover5","اكتشف 5 عناصر",state.discoveries>=5,5],["discover20","اكتشف 20 عنصر",state.discoveries>=20,20],["own30","اجمع 30 عنصر",state.owned.length>=30,30],["factory","مالك مصنع",state.factories>0,1],["ship","أول شحنة",state.produced>0,1]];$("achievements").innerHTML=a.map(x=>`<div class="achievement ${x[2]?'done':''}">${x[2]?'🏅':'🔒'} <b>${x[1]}</b><small style="float:left">${x[2]?'مكتمل':'غير مكتمل'}</small></div>`).join("")}
+function drawCountry(){
+ const lvl=getLevel(state.xp||0);state.level=lvl;
+ $("countryLock").textContent=lvl>=20?"✅ مفتوحة":"🔒 Lv.20";
+ $("countryLevel").textContent=lvl;$("buildingCount").textContent=Number(state.country?.buildings)||0;
+ $("countryActions").innerHTML=lvl<20?`<h3>🔒 الدولة مقفولة</h3><p>اجمع XP من اكتشاف العناصر حتى تصل إلى المستوى 20. بعدها ستفتح مملكة العناصر والمصانع.</p><div class="progress"><span style="width:${Math.min(100,lvl/20*100)}%"></span></div>`:
+ `<h3>🏰 ${escapeHtml(state.country?.name||"مملكة العناصر")}</h3><p>كل مبنى استثماري يضيف دخلًا دوريًا لاقتصادك.</p><button class="primary" id="buildCountry">🏗️ بناء منشأة — ${50+((state.country?.buildings||0)*25)} 🪙</button><p class="muted">الدخل الحالي: ${(state.country?.buildings||0)*2} عملة كل 10 ثوانٍ</p>`;
+ const btn=$("buildCountry");if(btn)btn.onclick=()=>{let n=Number(state.country?.buildings)||0,cost=50+n*25;if(state.coins<cost)return toast("عملاتك لا تكفي لبناء المنشأة");state.coins-=cost;state.country={...(state.country||{}),name:"مملكة العناصر",buildings:n+1};save();drawAll();toast("تم بناء منشأة جديدة! دخل المملكة زاد.")};
+}
+function drawAll(){drawStats();drawInventory();drawHints();drawRecent();drawBook();drawFactories();drawAchievements();drawCountry();if(adminUnlocked)drawAdmin()}
+
+function drawAdmin(){
+ if(!adminUnlocked)return;
+ const players=Object.entries(getPlayers());
+ $("adminPlayers").textContent=players.length;
+ $("adminDiscoveries").textContent=players.reduce((n,[k,v])=>n+((v.state&&v.state.discoveries)||0),0);
+ $("adminPlayerList").innerHTML=players.map(([id,p],index)=>{
+  const s=p.state||blankState(),label=p.guest?(p.username||"ضيف"):(p.username||id);
+  const owned=Array.isArray(s.owned)?s.owned:[];
+  const factories=Math.max(0,Number(s.factories)||0);
+  const discovered=owned.map(elementId=>{
+   const e=byId[elementId];
+   return e?`<span class="admin-chip">${e[3]} ${e[1]}</span>`:`<span class="admin-chip">${String(elementId)}</span>`;
+  }).join("")||'<span class="muted">لم يكتشف أي عناصر إضافية.</span>';
+  const factoryItems=factories?Array.from({length:Math.min(factories,100)},(_,i)=>`<span class="admin-chip">🏭 مصنع ${i+1}</span>`).join(""):`<span class="muted">لا توجد مصانع.</span>`;
+  return `<div class="factorycard"><h3>${p.guest?"👤":"🧑‍💻"} ${escapeHtml(label)}</h3><p class="muted">النوع: ${p.guest?"ضيف":"حساب مسجل"} · العملات: ${Number(s.coins)||0} · العناصر المكتشفة: ${owned.length} · المصانع: ${factories} · الاكتشافات: ${Number(s.discoveries)||0}</p><small>آخر حفظ: ${s.last?new Date(s.last).toLocaleString("ar-EG"):"غير متاح"}</small><details class="admin-details"><summary>عرض العناصر المكتشفة والمصانع</summary><p><b>🧪 العناصر المكتشفة (${owned.length})</b></p><div class="admin-detail-list">${discovered}</div><p style="margin-top:12px"><b>🏭 المصانع (${factories})</b></p><div class="admin-detail-list">${factoryItems}</div><p class="admin-readonly">👁️ عرض فقط — لا يمكن تعديل تقدم هذا الحساب أو عناصره أو مصانعه من لوحة الأدمن.</p></details></div>`;
+ }).join("")||'<p class="muted">لا يوجد لاعبون بعد.</p>';
+ drawAdminInbox();
+}
+
+
+$("openAdminGate").onclick=()=>toast("لوحة الأدمن ستُفعّل بعد إعداد صلاحية إدارية آمنة على الخادم.");
+$("adminCodeCancel").onclick=()=>{$("adminGate").classList.remove("open")};
+$("adminCodeSubmit").onclick=()=>{
+ if(false){
+  $("adminGate").classList.remove("open");
+  document.querySelectorAll(".tabscontent").forEach(x=>x.classList.remove("show"));
+  $("adminDashboard").classList.add("show");drawAdmin();
+ }else{$("adminGateError").textContent="سجّل الدخول بحساب MONOS لفتح لوحة الأدمن.";$("adminGateError").style.display="block";}
+};
+$("adminBack").onclick=()=>{
+ $("adminDashboard").classList.remove("show");
+ $("settings").classList.add("show");
+ document.querySelectorAll(".nav button").forEach(x=>x.classList.toggle("active",x.dataset.tab==="settings"));
+};
+
+$("recipeHint").onclick=giveRecipeHint;$("fullElement").onclick=giveFullElement;
+$("loginBtn").onclick=loginPlayer;$("registerBtn").onclick=registerPlayer;$("resendVerifyBtn").onclick=resendVerification;$("guestBtn").onclick=enterGuest;
+$("accountBtn").onclick=()=>{$("authScreen").classList.add("open")};
+$("combine").onclick=combine;$("clear").onclick=()=>{state.selected=[];drawInventory()};$("searchLab").oninput=drawInventory;$("searchBook").oninput=drawBook;
+document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>{if(b.dataset.tab==="country"&&getLevel(state.xp||0)<20)return toast("الدولة تفتح عند المستوى 20! اكتشف عناصر واجمع XP.");document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll(".tabscontent").forEach(x=>x.classList.remove("show"));$(b.dataset.tab).classList.add("show");});
+$("showAll").onclick=()=>{state.filter="all";drawBook()};$("showKnown").onclick=()=>{state.filter="known";drawBook()};$("showLocked").onclick=()=>{state.filter="locked";drawBook()};
+function theme(){document.documentElement.dataset.theme=state.theme;$("theme").textContent=state.theme==="dark"?"☀️":"🌙";save()}function lang(){document.documentElement.lang=state.lang;document.documentElement.dir=state.lang==="ar"?"rtl":"ltr";$("lang").textContent=state.lang==="ar"?"EN":"ع";$("subtitle").textContent=state.lang==="ar"?"امزج العناصر، اكتشف عالمًا بلا حدود":"Combine elements, discover an infinite world";save();drawAll()}
+$("theme").onclick=$("toggleTheme").onclick=()=>{state.theme=state.theme==="dark"?"light":"dark";theme()};$("lang").onclick=$("toggleLang").onclick=()=>{state.lang=state.lang==="ar"?"en":"ar";lang()};
+$("buyfactory").onclick=()=>{if(getLevel(state.xp||0)<20)return toast("المصانع تفتح عند المستوى 20 داخل الدولة");if(state.coins<150)return toast("تحتاج 150 عملة لشراء مصنع");state.coins-=150;state.factories++;state.last=Date.now();save();drawAll();toast("تم شراء مصنع!")};
+function produce(){let n=state.factories;if(n){state.cargo+=n;state.produced+=n;state.coins+=Math.max(0,Math.floor(n/2));state.last=Date.now()}let buildings=Number(state.country?.buildings)||0;if(getLevel(state.xp||0)>=20&&buildings)state.coins+=buildings*2;if(n||buildings){save();drawStats();drawFactories();drawCountry();drawAchievements()}}setInterval(produce,10000);
+$("ship").onclick=()=>{if(!state.cargo)return toast("مخزون الشحن فارغ");let gain=state.cargo*2;state.coins+=gain;state.cargo=0;state.produced++;save();drawAll();toast("تم الشحن! +"+gain+" 🪙")};
+function makeProgressReport(){const a=[["اكتشاف 5 عناصر",state.discoveries>=5],["اكتشاف 20 عنصر",state.discoveries>=20],["جمع 30 عنصر",state.owned.length>=30],["امتلاك مصنع",state.factories>0],["أول شحنة",state.produced>0],["فتح الدولة",getLevel(state.xp||0)>=20]];return {account:currentPlayer,generatedAt:new Date().toISOString(),level:getLevel(state.xp||0),xp:state.xp||0,coins:state.coins,discoveryCount:state.discoveries,ownedElements:state.owned.map(id=>({id,name:byId[id]?.[1]||id,emoji:byId[id]?.[3]||""})),achievements:a.map(([title,complete])=>({title,complete})),factories:state.factories,countryBuildings:state.country?.buildings||0}}
+function downloadProgressReport(){if(!currentPlayer)return toast("سجّل الدخول أولًا");const report=makeProgressReport();const blob=new Blob([JSON.stringify(report,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="iet-progress-"+currentPlayer+".json";a.click();URL.revokeObjectURL(a.href);toast("تم تنزيل تقرير التقدم");}
+$("achievementReport").onclick=downloadProgressReport;
+
+$("export").onclick=()=>{let blob=new Blob([JSON.stringify(state,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="infinite-element-tycoon-save.json";a.click();URL.revokeObjectURL(a.href)};
+$("import").onchange=e=>{let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let s=JSON.parse(r.result);if(!s.owned||!s.counts)throw 0;state={...state,...s};save();drawAll();toast("تم استيراد الحفظ")}catch{toast("ملف الحفظ غير صالح")}};r.readAsText(f)};
+function modal(title,msg,ok){$("modaltitle").textContent=title;$("modaltext").textContent=msg;$("modal").classList.add("open");$("modalok").onclick=()=>{$("modal").classList.remove("open");ok()};$("modalcancel").onclick=()=>$("modal").classList.remove("open")}
+$("reset").onclick=()=>modal("بدء لعبة جديدة","هل تريد مسح تقدم هذا اللاعب الحالي؟",()=>{state=blankState();save();drawAll();toast("بدأت لعبة جديدة")});
+// لا توجد بيانات دخول إدارية مضمنة داخل ملف اللعبة.
+handleNhostVerificationReturn();
+setInterval(()=>{if(currentPlayer)save()},5000);
+</script></body></html>
